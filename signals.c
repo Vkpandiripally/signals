@@ -74,6 +74,7 @@ int main(int argc, char* argv[])
 
   /* STEP - 3 (10 points) */
   /* setup mask_set - fill up the mask_set with all the signals to block*/
+
   sigfillset(&mask_set);
 
   /* STEP - 4 (10 points) */
@@ -82,17 +83,18 @@ int main(int argc, char* argv[])
   
   /* STEP - 5 (20 points) */
   /* set signal handlers for SIGINT, SIGTSTP and SIGALRM */
-  signal(SIGINT, catch_int);
-  signal(SIGTSTP, catch_tstp);
-  signal(SIGALRM, catch_alrm);
+  sa.sa_handler = catch_int;
+  sigaction(SIGINT, &sa, NULL);
+  sa.sa_handler = catch_tstp;
+  sigaction(SIGTSTP, &sa, NULL);
+  sa.sa_handler = catch_alrm;
+  sigaction(SIGALRM, &sa, NULL);
   
   /* STEP - 6 (10 points) */
   /* ensure that the program keeps running to receive the signals */
-  while()
+  while(1)
   {
-      catch_int;
-      catch_tstp;
-      catch_alrm;
+     pause();
   }
 
   return 0;
