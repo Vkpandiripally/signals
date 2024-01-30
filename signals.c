@@ -88,7 +88,12 @@ int main(int argc, char* argv[])
   
   /* STEP - 6 (10 points) */
   /* ensure that the program keeps running to receive the signals */
-  //YOUR CODE
+  while()
+  {
+      catch_int;
+      catch_tstp;
+      catch_alrm;
+  }
 
   return 0;
 }
