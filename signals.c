@@ -59,7 +59,7 @@ void catch_alrm(unsigned int seconds)
     exit(0);
   } else 
   {
-    got_response == 0;
+    got_response = 0;
   }
 }
 
