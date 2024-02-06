@@ -55,7 +55,11 @@ void catch_alrm(unsigned int seconds)
   if (got_response == 0)
   {
     printf("User taking too long to respond. Exiting...\n");
+    fflush(stdout);
     exit(0);
+  } else 
+  {
+    got_response == 0;
   }
 }
 
